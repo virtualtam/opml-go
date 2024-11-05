@@ -102,6 +102,158 @@ var (
 			},
 		},
 	}
+
+	specDocumentSubscriptionList = Document{
+		XMLName: xml.Name{
+			Local: "opml",
+		},
+		Version: "2.0",
+		Head: Head{
+			Title:           "mySubscriptions.opml",
+			DateCreated:     mustParseTimeGMT("Sat, 18 Jun 2005 12:11:52 GMT"),
+			DateModified:    mustParseTimeGMT("Tue, 02 Aug 2005 21:42:48 GMT"),
+			OwnerName:       "Dave Winer",
+			OwnerEmail:      "dave@scripting.com",
+			VertScrollState: 1,
+			WindowTop:       61,
+			WindowLeft:      304,
+			WindowBottom:    562,
+			WindowRight:     842,
+		},
+		Body: Body{
+			Outlines: []Outline{
+				{
+					Text:        "CNET News.com",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "CNET News.com",
+					Description: "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.",
+					Language:    "unknown",
+					HTMLURL:     "http://news.com.com/",
+					XMLURL:      "http://news.com.com/2547-1_3-0-5.xml",
+				},
+				{
+					Text:        "washingtonpost.com - Politics",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "washingtonpost.com - Politics",
+					Description: "Politics",
+					Language:    "unknown",
+					HTMLURL:     "http://www.washingtonpost.com/wp-dyn/politics?nav=rss_politics",
+					XMLURL:      "http://www.washingtonpost.com/wp-srv/politics/rssheadlines.xml",
+				},
+				{
+					Text:        "Scobleizer: Microsoft Geek Blogger",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "Scobleizer: Microsoft Geek Blogger",
+					Description: "Robert Scoble's look at geek and Microsoft life.",
+					Language:    "unknown",
+					HTMLURL:     "http://radio.weblogs.com/0001011/",
+					XMLURL:      "http://radio.weblogs.com/0001011/rss.xml",
+				},
+				{
+					Text:        "Yahoo! News: Technology",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "Yahoo! News: Technology",
+					Description: "Technology",
+					Language:    "unknown",
+					HTMLURL:     "http://news.yahoo.com/news?tmpl=index&cid=738",
+					XMLURL:      "http://rss.news.yahoo.com/rss/tech",
+				},
+				{
+					Text:        "Workbench",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "Workbench",
+					Description: "Programming and publishing news and comment",
+					Language:    "unknown",
+					HTMLURL:     "http://www.cadenhead.org/workbench/",
+					XMLURL:      "http://www.cadenhead.org/workbench/rss.xml",
+				},
+				{
+					Text:        "Christian Science Monitor | Top Stories",
+					Type:        "rss",
+					Version:     "RSS",
+					Title:       "Christian Science Monitor | Top Stories",
+					Description: "Read the front page stories of csmonitor.com.",
+					Language:    "unknown",
+					HTMLURL:     "http://csmonitor.com",
+					XMLURL:      "http://www.csmonitor.com/rss/top.rss",
+				},
+				{
+					Text:        "Dictionary.com Word of the Day",
+					Type:        "rss",
+					Version:     "RSS",
+					Title:       "Dictionary.com Word of the Day",
+					Description: "A new word is presented every day with its definition and example sentences from actual published works.",
+					Language:    "unknown",
+					HTMLURL:     "http://dictionary.reference.com/wordoftheday/",
+					XMLURL:      "http://www.dictionary.com/wordoftheday/wotd.rss",
+				},
+				{
+					Text:        "The Motley Fool",
+					Type:        "rss",
+					Version:     "RSS",
+					Title:       "The Motley Fool",
+					Description: "To Educate, Amuse, and Enrich",
+					Language:    "unknown",
+					HTMLURL:     "http://www.fool.com",
+					XMLURL:      "http://www.fool.com/xml/foolnews_rss091.xml",
+				},
+				{
+					Text:        "InfoWorld: Top News",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "InfoWorld: Top News",
+					Description: "The latest on Top News from InfoWorld",
+					Language:    "unknown",
+					HTMLURL:     "http://www.infoworld.com/news/index.html",
+					XMLURL:      "http://www.infoworld.com/rss/news.xml",
+				},
+				{
+					Text:        "NYT > Business",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "NYT > Business",
+					Description: "Find breaking news & business news on Wall Street, media & advertising, international business, banking, interest rates, the stock market, currencies & funds.",
+					Language:    "unknown",
+					HTMLURL:     "http://www.nytimes.com/pages/business/index.html?partner=rssnyt",
+					XMLURL:      "http://www.nytimes.com/services/xml/rss/nyt/Business.xml",
+				},
+				{
+					Text:     "NYT > Technology",
+					Type:     "rss",
+					Version:  "RSS2",
+					Title:    "NYT > Technology",
+					Language: "unknown",
+					HTMLURL:  "http://www.nytimes.com/pages/technology/index.html?partner=rssnyt",
+					XMLURL:   "http://www.nytimes.com/services/xml/rss/nyt/Technology.xml",
+				},
+				{
+					Text:        "Scripting News",
+					Type:        "rss",
+					Version:     "RSS2",
+					Title:       "Scripting News",
+					Description: "It's even worse than it appears.",
+					Language:    "unknown",
+					HTMLURL:     "http://www.scripting.com/",
+					XMLURL:      "http://www.scripting.com/rss.xml",
+				},
+				{
+					Text:        "Wired News",
+					Type:        "rss",
+					Version:     "RSS",
+					Title:       "Wired News",
+					Description: "Technology, and the way we do business, is changing the world we know. Wired News is a technology - and business-oriented news service feeding an intelligent, discerning audience. What role does technology play in the day-to-day living of your life? Wired News tells you. How has evolving technology changed the face of the international business world? Wired News puts you in the picture.",
+					Language:    "unknown",
+					HTMLURL:     "http://www.wired.com/",
+					XMLURL:      "http://www.wired.com/news_drop/netcenter/netcenter.rdf",
+				},
+			},
+		},
+	}
 )
 
 func TestMarshalFileSpec(t *testing.T) {
@@ -119,6 +271,11 @@ func TestMarshalFileSpec(t *testing.T) {
 			tname:             "directory",
 			document:          specDocumentDirectory,
 			referenceFileName: "directory.opml",
+		},
+		{
+			tname:             "subscription list",
+			document:          specDocumentSubscriptionList,
+			referenceFileName: "subscriptionList.opml",
 		},
 	}
 
@@ -162,6 +319,11 @@ func TestUnmarshalFileSpec(t *testing.T) {
 			tname:         "directory",
 			inputFileName: "directory.opml",
 			want:          specDocumentDirectory,
+		},
+		{
+			tname:         "subscription list",
+			inputFileName: "subscriptionList.opml",
+			want:          specDocumentSubscriptionList,
 		},
 	}
 
@@ -261,5 +423,25 @@ func assertDocumentsEqual(t *testing.T, got, want Document) {
 		if gotOutline.URL != wantOutline.URL {
 			t.Errorf("want Outline %d URL %q, got %q", index, wantOutline.URL, gotOutline.URL)
 		}
+
+		if gotOutline.Version != wantOutline.Version {
+			t.Errorf("want Outline %d Version %q, got %q", index, wantOutline.Version, gotOutline.Version)
+		}
+		if gotOutline.Title != wantOutline.Title {
+			t.Errorf("want Outline %d Title %q, got %q", index, wantOutline.Title, gotOutline.Title)
+		}
+		if gotOutline.Description != wantOutline.Description {
+			t.Errorf("want Outline %d Description %q, got %q", index, wantOutline.Description, gotOutline.Description)
+		}
+		if gotOutline.Language != wantOutline.Language {
+			t.Errorf("want Outline %d Language %q, got %q", index, wantOutline.Language, gotOutline.Language)
+		}
+		if gotOutline.HTMLURL != wantOutline.HTMLURL {
+			t.Errorf("want Outline %d HTMLURL %q, got %q", index, wantOutline.HTMLURL, gotOutline.HTMLURL)
+		}
+		if gotOutline.XMLURL != wantOutline.XMLURL {
+			t.Errorf("want Outline %d XMLURL %q, got %q", index, wantOutline.XMLURL, gotOutline.XMLURL)
+		}
+
 	}
 }

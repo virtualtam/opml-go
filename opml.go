@@ -141,32 +141,56 @@ type Body struct {
 	Outlines []Outline `xml:"outline"`
 }
 
-// An Outline represents a text element, a subsciption list item or a directory.
+// An Outline represents a text element, a subscription list item or a directory.
 type Outline struct {
-	Text       string
+	Text string
+	Type string
+
 	Categories []string
 	Created    time.Time
-	Type       string
 	URL        string
+
+	Version     string
+	Title       string
+	Description string
+	Language    string
+	HTMLURL     string
+	XMLURL      string
 }
 
 type xmlOutline struct {
-	Text       string `xml:"text,attr"`
-	Categories string `xml:"category,attr,omitempty"`
-	CreatedStr string `xml:"created,attr,omitempty"`
-	Type       string `xml:"type,attr,omitempty"`
-	URL        string `xml:"url,attr,omitempty"`
+	Text        string `xml:"text,attr"`
+	Categories  string `xml:"category,attr,omitempty"`
+	CreatedStr  string `xml:"created,attr,omitempty"`
+	Description string `xml:"description,attr,omitempty"`
+	HTMLURL     string `xml:"htmlUrl,attr,omitempty"`
+	Language    string `xml:"language,attr,omitempty"`
+	Title       string `xml:"title,attr,omitempty"`
+	Type        string `xml:"type,attr,omitempty"`
+	URL         string `xml:"url,attr,omitempty"`
+	Version     string `xml:"version,attr,omitempty"`
+	XMLURL      string `xml:"xmlUrl,attr,omitempty"`
 }
 
 func (o *Outline) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	createdStr := formatRFC1123Time(o.Created)
 
 	xmlOutline := xmlOutline{
-		Text:       o.Text,
+		Text: o.Text,
+		Type: o.Type,
+
 		Categories: strings.Join(o.Categories, ","),
-		CreatedStr: createdStr,
-		Type:       o.Type,
 		URL:        o.URL,
+
+		Version:     o.Version,
+		Title:       o.Title,
+		Description: o.Description,
+		HTMLURL:     o.HTMLURL,
+		Language:    o.Language,
+		XMLURL:      o.XMLURL,
+	}
+
+	if !o.Created.IsZero() {
+		xmlOutline.CreatedStr = formatRFC1123Time(o.Created)
 	}
 
 	return e.EncodeElement(xmlOutline, start)
@@ -177,6 +201,11 @@ func (o *Outline) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	if err := d.DecodeElement(&xmlOutline, &start); err != nil {
 		return err
 	}
+
+	o.Text = xmlOutline.Text
+	o.Type = xmlOutline.Type
+
+	o.URL = xmlOutline.URL
 
 	if xmlOutline.Categories != "" {
 		o.Categories = strings.Split(xmlOutline.Categories, ",")
@@ -191,9 +220,12 @@ func (o *Outline) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		o.Created = created
 	}
 
-	o.Text = xmlOutline.Text
-	o.Type = xmlOutline.Type
-	o.URL = xmlOutline.URL
+	o.Version = xmlOutline.Version
+	o.Title = xmlOutline.Title
+	o.Description = xmlOutline.Description
+	o.Language = xmlOutline.Language
+	o.HTMLURL = xmlOutline.HTMLURL
+	o.XMLURL = xmlOutline.XMLURL
 
 	return nil
 }
