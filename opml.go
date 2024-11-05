@@ -11,6 +11,8 @@ import (
 )
 
 // A Document represents an OPML Document.
+//
+// See https://opml.org/spec2.opml for details on the OPML specification.
 type Document struct {
 	XMLName xml.Name `xml:"opml"`
 	Version string   `xml:"version,attr"`
@@ -20,17 +22,39 @@ type Document struct {
 
 // A Head contains the metadata for the OPML Document.
 type Head struct {
-	Title           string
-	DateCreated     time.Time
-	DateModified    time.Time
-	OwnerName       string
-	OwnerEmail      string
+	// The title of the document.
+	Title string
+
+	// The date the document was created.
+	DateCreated time.Time
+
+	// The date indicating when the document was last modified.
+	DateModified time.Time
+
+	// The owner of the document.
+	OwnerName string
+
+	// The email address of the owner of the document.
+	OwnerEmail string
+
+	// A list of line numbers that are expanded.
+	// The line numbers in the list indicate which headlines to expand.
 	ExpansionStates []int
+
+	// A number, saying which  line of the outline is displayed on the top line of the window.
 	VertScrollState int
-	WindowTop       int
-	WindowLeft      int
-	WindowBottom    int
-	WindowRight     int
+
+	// The pixel location of the top edge of the window.
+	WindowTop int
+
+	// The pixel location of the left edge of the window.
+	WindowLeft int
+
+	// The pixel location of the bottom edge of the window.
+	WindowBottom int
+
+	// The pixel location of the right edge of the window.
+	WindowRight int
 }
 
 type xmlHead struct {
@@ -143,23 +167,48 @@ type Body struct {
 
 // An Outline represents a text element, a subscription list item or a directory.
 type Outline struct {
+	// The Text that is displayed when an outliner opens the OPML document.
 	Text string
+
+	// Special: The Type indicates how the attributes of the Outline are interpreted.
 	Type string
 
-	Categories []string
-	Created    time.Time
-	URL        string
-
-	Version     string
-	Title       string
-	Description string
-	Language    string
-	HTMLURL     string
-	XMLURL      string
-
+	// Special: Indicates whether a breakpoint is set on this outline.
 	IsBreakpoint bool
-	IsComment    bool
 
+	// Special: Indicates whether the outline is commented.
+	//
+	// If an outline is commented, all subordinate outlines are considered to also be commented.
+	IsComment bool
+
+	// Special: A list of category strings.
+	Categories []string
+
+	// Special: The date when the outline node was created.
+	Created time.Time
+
+	// Inclusion: The HTTP address of the included link.
+	URL string
+
+	// Subscription: Version of RSS/Atom that is being supplied by the feed.
+	Version string
+
+	// Subscription: Title is the top-level title from the feed.
+	Title string
+
+	// Subscription: Description is the top-level description element from the feed.
+	Description string
+
+	// Subscription: Language is the top-level language element for the feed.
+	Language string
+
+	// Subscription: HTMLURL is the top-level link element from the feed.
+	HTMLURL string
+
+	// Subscription: XMLURL is the address of the feed.
+	XMLURL string
+
+	// Directory: Subordinated outlines, arbitrarily structured.
 	Outlines []Outline
 }
 
