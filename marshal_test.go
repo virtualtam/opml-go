@@ -103,6 +103,76 @@ var (
 		},
 	}
 
+	specDocumentSimpleScript = Document{
+		XMLName: xml.Name{
+			Local: "opml",
+		},
+		Version: "2.0",
+		Head: Head{
+			Title:           "workspace.userlandsamples.doSomeUpstreaming",
+			DateCreated:     mustParseTimeGMT("Mon, 11 Feb 2002 22:48:02 GMT"),
+			DateModified:    mustParseTimeGMT("Sun, 30 Oct 2005 03:30:17 GMT"),
+			OwnerName:       "Dave Winer",
+			OwnerEmail:      "dwiner@yahoo.com",
+			ExpansionStates: []int{1, 2, 4},
+			VertScrollState: 1,
+			WindowTop:       74,
+			WindowLeft:      41,
+			WindowBottom:    314,
+			WindowRight:     475,
+		},
+		Body: Body{
+			Outlines: []Outline{
+				{
+					Text:      "Changes",
+					IsComment: true,
+					Outlines: []Outline{
+						{
+							Text: "1/3/02; 4:54:25 PM by DW",
+							Outlines: []Outline{
+								{
+									Text: `Change "playlist" to "radio".`,
+								},
+							},
+						},
+						{
+							Text:      "2/12/01; 1:49:33 PM by DW",
+							IsComment: true,
+							Outlines: []Outline{
+								{
+									Text: "Test upstreaming by sprinkling a few files in a nice new test folder.",
+								},
+							},
+						},
+					},
+				},
+				{
+					Text: "on writetestfile (f, size)",
+					Outlines: []Outline{
+						{
+							Text:         "file.surefilepath (f)",
+							IsBreakpoint: true,
+						},
+						{
+							Text: `file.writewholefile (f, string.filledstring ("x", size))`,
+						},
+					},
+				},
+				{
+					Text: `local (folder = user.radio.prefs.wwwfolder + "test\\largefiles\\")`,
+				},
+				{
+					Text: "for ch = 'a' to 'z'",
+					Outlines: []Outline{
+						{
+							Text: `writetestfile (folder + ch + ".html", random (1000, 16000))`,
+						},
+					},
+				},
+			},
+		},
+	}
+
 	specDocumentSubscriptionList = Document{
 		XMLName: xml.Name{
 			Local: "opml",
@@ -273,6 +343,11 @@ func TestMarshalFileSpec(t *testing.T) {
 			referenceFileName: "directory.opml",
 		},
 		{
+			tname:             "simple script",
+			document:          specDocumentSimpleScript,
+			referenceFileName: "simpleScript.opml",
+		},
+		{
 			tname:             "subscription list",
 			document:          specDocumentSubscriptionList,
 			referenceFileName: "subscriptionList.opml",
@@ -319,6 +394,11 @@ func TestUnmarshalFileSpec(t *testing.T) {
 			tname:         "directory",
 			inputFileName: "directory.opml",
 			want:          specDocumentDirectory,
+		},
+		{
+			tname:         "simple script",
+			inputFileName: "simpleScript.opml",
+			want:          specDocumentSimpleScript,
 		},
 		{
 			tname:         "subscription list",
@@ -391,12 +471,18 @@ func assertDocumentsEqual(t *testing.T, got, want Document) {
 	}
 
 	// Body
-	if len(got.Body.Outlines) != len(want.Body.Outlines) {
-		t.Fatalf("want %d Outlines, got %d", len(want.Body.Outlines), len(got.Body.Outlines))
+	assertOutlinesEqual(t, got.Body.Outlines, want.Body.Outlines)
+}
+
+func assertOutlinesEqual(t *testing.T, gotOutlines, wantOutlines []Outline) {
+	t.Helper()
+
+	if len(gotOutlines) != len(wantOutlines) {
+		t.Fatalf("want %d Outlines, got %d", len(wantOutlines), len(gotOutlines))
 	}
 
-	for index, wantOutline := range want.Body.Outlines {
-		gotOutline := got.Body.Outlines[index]
+	for index, wantOutline := range wantOutlines {
+		gotOutline := gotOutlines[index]
 
 		if gotOutline.Text != wantOutline.Text {
 			t.Errorf("want Outline %d Text %q, got %q", index, wantOutline.Text, gotOutline.Text)
@@ -443,5 +529,13 @@ func assertDocumentsEqual(t *testing.T, got, want Document) {
 			t.Errorf("want Outline %d XMLURL %q, got %q", index, wantOutline.XMLURL, gotOutline.XMLURL)
 		}
 
+		if gotOutline.IsBreakpoint != wantOutline.IsBreakpoint {
+			t.Errorf("want Outline %d IsBreakpoint %t, got %t", index, wantOutline.IsBreakpoint, gotOutline.IsBreakpoint)
+		}
+		if gotOutline.IsComment != wantOutline.IsComment {
+			t.Errorf("want Outline %d IsComment %t, got %t", index, wantOutline.IsComment, gotOutline.IsComment)
+		}
+
+		assertOutlinesEqual(t, gotOutline.Outlines, wantOutline.Outlines)
 	}
 }

@@ -156,20 +156,30 @@ type Outline struct {
 	Language    string
 	HTMLURL     string
 	XMLURL      string
+
+	IsBreakpoint bool
+	IsComment    bool
+
+	Outlines []Outline
 }
 
 type xmlOutline struct {
-	Text        string `xml:"text,attr"`
-	Categories  string `xml:"category,attr,omitempty"`
-	CreatedStr  string `xml:"created,attr,omitempty"`
-	Description string `xml:"description,attr,omitempty"`
-	HTMLURL     string `xml:"htmlUrl,attr,omitempty"`
-	Language    string `xml:"language,attr,omitempty"`
-	Title       string `xml:"title,attr,omitempty"`
-	Type        string `xml:"type,attr,omitempty"`
-	URL         string `xml:"url,attr,omitempty"`
-	Version     string `xml:"version,attr,omitempty"`
-	XMLURL      string `xml:"xmlUrl,attr,omitempty"`
+	Text string `xml:"text,attr"`
+
+	Categories   string `xml:"category,attr,omitempty"`
+	CreatedStr   string `xml:"created,attr,omitempty"`
+	Description  string `xml:"description,attr,omitempty"`
+	HTMLURL      string `xml:"htmlUrl,attr,omitempty"`
+	IsBreakpoint bool   `xml:"isBreakpoint,attr,omitempty"`
+	IsComment    bool   `xml:"isComment,attr,omitempty"`
+	Language     string `xml:"language,attr,omitempty"`
+	Title        string `xml:"title,attr,omitempty"`
+	Type         string `xml:"type,attr,omitempty"`
+	URL          string `xml:"url,attr,omitempty"`
+	Version      string `xml:"version,attr,omitempty"`
+	XMLURL       string `xml:"xmlUrl,attr,omitempty"`
+
+	Outlines []Outline `xml:"outline"`
 }
 
 func (o *Outline) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -187,6 +197,11 @@ func (o *Outline) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		HTMLURL:     o.HTMLURL,
 		Language:    o.Language,
 		XMLURL:      o.XMLURL,
+
+		IsBreakpoint: o.IsBreakpoint,
+		IsComment:    o.IsComment,
+
+		Outlines: o.Outlines,
 	}
 
 	if !o.Created.IsZero() {
@@ -226,6 +241,11 @@ func (o *Outline) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	o.Language = xmlOutline.Language
 	o.HTMLURL = xmlOutline.HTMLURL
 	o.XMLURL = xmlOutline.XMLURL
+
+	o.IsBreakpoint = xmlOutline.IsBreakpoint
+	o.IsComment = xmlOutline.IsComment
+
+	o.Outlines = xmlOutline.Outlines
 
 	return nil
 }
