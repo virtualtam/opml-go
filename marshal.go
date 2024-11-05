@@ -18,7 +18,10 @@ import (
 func Marshal(d *Document) ([]byte, error) {
 	var buf bytes.Buffer
 	writer := bufio.NewWriter(&buf)
-	writer.WriteString(xml.Header)
+	_, err := writer.WriteString(xml.Header)
+	if err != nil {
+		return []byte{}, err
+	}
 
 	encoder := xml.NewEncoder(writer)
 	encoder.Indent("", "  ")

@@ -516,8 +516,6 @@ func TestMarshalFileSpec(t *testing.T) {
 			got := string(gotBytes)
 			want := string(wantBytes)
 
-			os.WriteFile(filepath.Join("/tmp", tc.referenceFileName), gotBytes, 0644)
-
 			if got != want {
 				t.Errorf("\nwant:\n%s\n\ngot:\n%s", want, got)
 			}
