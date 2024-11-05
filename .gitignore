@@ -1,0 +1,7 @@
+bench/
+build/
+
+opml-go.test
+
+coverage.out
+coverage.html
