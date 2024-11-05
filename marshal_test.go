@@ -173,6 +173,145 @@ var (
 		},
 	}
 
+	specDocumentStates = Document{
+		XMLName: xml.Name{
+			Local: "opml",
+		},
+		Version: "2.0",
+		Head: Head{
+			Title:           "states.opml",
+			DateCreated:     mustParseTimeGMT("Tue, 15 Mar 2005 16:35:45 GMT"),
+			DateModified:    mustParseTimeGMT("Thu, 14 Jul 2005 23:41:05 GMT"),
+			OwnerName:       "Dave Winer",
+			OwnerEmail:      "dave@scripting.com",
+			ExpansionStates: []int{1, 6, 13, 16, 18, 20},
+			VertScrollState: 1,
+			WindowTop:       106,
+			WindowLeft:      106,
+			WindowBottom:    558,
+			WindowRight:     479,
+		},
+		Body: Body{
+			Outlines: []Outline{
+				{
+					Text: "United States",
+					Outlines: []Outline{
+						{
+							Text: "Far West",
+							Outlines: []Outline{
+								{Text: "Alaska"},
+								{Text: "California"},
+								{Text: "Hawaii"},
+								{
+									Text: "Nevada",
+									Outlines: []Outline{
+										{
+											Text:    "Reno",
+											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:35 GMT"),
+										},
+										{
+											Text:    "Las Vegas",
+											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:37 GMT"),
+										},
+										{
+											Text:    "Ely",
+											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:39 GMT"),
+										},
+										{
+											Text:    "Gerlach",
+											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:47 GMT"),
+										},
+									},
+								},
+								{Text: "Oregon"},
+								{Text: "Washington"},
+							},
+						},
+						{
+							Text: "Great Plains",
+							Outlines: []Outline{
+								{Text: "Kansas"},
+								{Text: "Nebraska"},
+								{Text: "North Dakota"},
+								{Text: "Oklahoma"},
+								{Text: "South Dakota"},
+							},
+						},
+						{
+							Text: "Mid-Atlantic",
+							Outlines: []Outline{
+								{Text: "Delaware"},
+								{Text: "Maryland"},
+								{Text: "New Jersey"},
+								{Text: "New York"},
+								{Text: "Pennsylvania"},
+							},
+						},
+						{
+							Text: "Midwest",
+							Outlines: []Outline{
+								{Text: "Illinois"},
+								{Text: "Indiana"},
+								{Text: "Iowa"},
+								{Text: "Kentucky"},
+								{Text: "Michigan"},
+								{Text: "Minnesota"},
+								{Text: "Missouri"},
+								{Text: "Ohio"},
+								{Text: "West Virginia"},
+								{Text: "Wisconsin"},
+							},
+						},
+						{
+							Text: "Mountains",
+							Outlines: []Outline{
+								{Text: "Colorado"},
+								{Text: "Idaho"},
+								{Text: "Montana"},
+								{Text: "Utah"},
+								{Text: "Wyoming"},
+							},
+						},
+						{
+							Text: "New England",
+							Outlines: []Outline{
+								{Text: "Connecticut"},
+								{Text: "Maine"},
+								{Text: "Massachusetts"},
+								{Text: "New Hampshire"},
+								{Text: "Rhode Island"},
+								{Text: "Vermont"},
+							},
+						},
+						{
+							Text: "South",
+							Outlines: []Outline{
+								{Text: "Alabama"},
+								{Text: "Arkansas"},
+								{Text: "Florida"},
+								{Text: "Georgia"},
+								{Text: "Louisiana"},
+								{Text: "Mississippi"},
+								{Text: "North Carolina"},
+								{Text: "South Carolina"},
+								{Text: "Tennessee"},
+								{Text: "Virginia"},
+							},
+						},
+						{
+							Text: "Southwest",
+							Outlines: []Outline{
+								{Text: "Arizona"},
+								{Text: "New Mexico"},
+								{Text: "Texas"},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
 	specDocumentSubscriptionList = Document{
 		XMLName: xml.Name{
 			Local: "opml",
@@ -348,6 +487,11 @@ func TestMarshalFileSpec(t *testing.T) {
 			referenceFileName: "simpleScript.opml",
 		},
 		{
+			tname:             "states",
+			document:          specDocumentStates,
+			referenceFileName: "states.opml",
+		},
+		{
 			tname:             "subscription list",
 			document:          specDocumentSubscriptionList,
 			referenceFileName: "subscriptionList.opml",
@@ -371,6 +515,8 @@ func TestMarshalFileSpec(t *testing.T) {
 
 			got := string(gotBytes)
 			want := string(wantBytes)
+
+			os.WriteFile(filepath.Join("/tmp", tc.referenceFileName), gotBytes, 0644)
 
 			if got != want {
 				t.Errorf("\nwant:\n%s\n\ngot:\n%s", want, got)
@@ -399,6 +545,11 @@ func TestUnmarshalFileSpec(t *testing.T) {
 			tname:         "simple script",
 			inputFileName: "simpleScript.opml",
 			want:          specDocumentSimpleScript,
+		},
+		{
+			tname:         "states",
+			inputFileName: "states.opml",
+			want:          specDocumentStates,
 		},
 		{
 			tname:         "subscription list",
