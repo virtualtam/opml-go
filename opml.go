@@ -39,7 +39,7 @@ type Head struct {
 
 	// A list of line numbers that are expanded.
 	// The line numbers in the list indicate which headlines to expand.
-	ExpansionStates []int `json:"expansion_states,omitempty"`
+	ExpansionState []int `json:"expansion_state,omitempty"`
 
 	// A number, saying which  line of the outline is displayed on the top line of the window.
 	VertScrollState int `json:"vert_scroll_state,omitempty"`
@@ -90,9 +90,9 @@ func (h *Head) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		xmlHead.DateModifiedStr = formatRFC1123Time(h.DateModified)
 	}
 
-	if len(h.ExpansionStates) > 0 {
+	if len(h.ExpansionState) > 0 {
 		var statesStr []string
-		for _, state := range h.ExpansionStates {
+		for _, state := range h.ExpansionState {
 			statesStr = append(statesStr, strconv.Itoa(state))
 		}
 
@@ -145,7 +145,7 @@ func (h *Head) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			expansionStates = append(expansionStates, state)
 		}
 
-		h.ExpansionStates = expansionStates
+		h.ExpansionState = expansionStates
 	}
 
 	h.Title = xmlHead.Title
