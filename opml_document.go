@@ -10,6 +10,21 @@ import (
 	"time"
 )
 
+type (
+	OutlineType string
+	RSSVersion  string
+)
+
+const (
+	Version2 string = "2.0"
+
+	OutlineTypeLink OutlineType = "link"
+	OutlineTypeRSS  OutlineType = "rss"
+
+	RSSVersion1 RSSVersion = "RSS"
+	RSSVersion2 RSSVersion = "RSS2"
+)
+
 // A Document represents an OPML Document.
 //
 // See https://opml.org/spec2.opml for details on the OPML specification.
@@ -171,7 +186,7 @@ type Outline struct {
 	Text string `json:"text"`
 
 	// Special: The Type indicates how the attributes of the Outline are interpreted.
-	Type string `json:"type,omitempty"`
+	Type OutlineType `json:"type,omitempty"`
 
 	// Special: Indicates whether a breakpoint is set on this outline.
 	IsBreakpoint bool `json:"is_breakpoint,omitempty"`
@@ -191,7 +206,7 @@ type Outline struct {
 	URL string `json:"url,omitempty"`
 
 	// Subscription: Version of RSS/Atom that is being supplied by the feed.
-	Version string `json:"version,omitempty"`
+	Version RSSVersion `json:"version,omitempty"`
 
 	// Subscription: Title is the top-level title from the feed.
 	Title string `json:"title,omitempty"`
@@ -235,12 +250,12 @@ func (o *Outline) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 	xmlOutline := xmlOutline{
 		Text: o.Text,
-		Type: o.Type,
+		Type: string(o.Type),
 
 		Categories: strings.Join(o.Categories, ","),
 		URL:        o.URL,
 
-		Version:     o.Version,
+		Version:     string(o.Version),
 		Title:       o.Title,
 		Description: o.Description,
 		HTMLURL:     o.HTMLURL,
@@ -267,7 +282,7 @@ func (o *Outline) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	}
 
 	o.Text = xmlOutline.Text
-	o.Type = xmlOutline.Type
+	o.Type = OutlineType(xmlOutline.Type)
 
 	o.URL = xmlOutline.URL
 
@@ -284,7 +299,7 @@ func (o *Outline) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		o.Created = created
 	}
 
-	o.Version = xmlOutline.Version
+	o.Version = RSSVersion(xmlOutline.Version)
 	o.Title = xmlOutline.Title
 	o.Description = xmlOutline.Description
 	o.Language = xmlOutline.Language

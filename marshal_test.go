@@ -16,7 +16,7 @@ var (
 		XMLName: xml.Name{
 			Local: "opml",
 		},
-		Version: "2.0",
+		Version: Version2,
 		Head: Head{
 			Title:       "Illustrating the category attribute",
 			DateCreated: mustParseTimeGMT("Mon, 31 Oct 2005 19:23:00 GMT"),
@@ -39,7 +39,7 @@ var (
 		XMLName: xml.Name{
 			Local: "opml",
 		},
-		Version: "2.0",
+		Version: Version2,
 		Head: Head{
 			Title:           "scriptingNewsDirectory.opml",
 			DateCreated:     mustParseTimeGMT("Thu, 13 Oct 2005 15:34:07 GMT"),
@@ -57,46 +57,46 @@ var (
 				{
 					Text:    "Scripting News sites",
 					Created: mustParseTimeGMT("Sun, 16 Oct 2005 05:56:10 GMT"),
-					Type:    "link",
+					Type:    OutlineTypeLink,
 					URL:     "http://hosting.opml.org/dave/mySites.opml",
 				},
 				{
 					Text:    "News.Com top 100 OPML",
 					Created: mustParseTimeGMT("Tue, 25 Oct 2005 21:33:28 GMT"),
-					Type:    "link",
+					Type:    OutlineTypeLink,
 					URL:     "http://news.com.com/html/ne/blogs/CNETNewsBlog100.opml",
 				},
 				{
 					Text:    "BloggerCon III Blogroll",
 					Created: mustParseTimeGMT("Mon, 24 Oct 2005 05:23:52 GMT"),
-					Type:    "link",
+					Type:    OutlineTypeLink,
 					URL:     "http://static.bloggercon.org/iii/blogroll.opml",
 				},
 				{
 					Text: "TechCrunch reviews",
-					Type: "link",
+					Type: OutlineTypeLink,
 					URL:  "http://hosting.opml.org/techcrunch.opml.org/TechCrunch.opml",
 				},
 				{
 					Text: "Tod Maffin's directory of Public Radio podcasts",
-					Type: "link",
+					Type: OutlineTypeLink,
 					URL:  "http://todmaffin.com/radio.opml",
 				},
 				{
 					Text: "Adam Curry's iPodder.org directory",
-					Type: "link",
+					Type: OutlineTypeLink,
 					URL:  "http://homepage.mac.com/dailysourcecode/DSC/ipodderDirectory.opml",
 				},
 				{
 					Text:    "Memeorandum",
 					Created: mustParseTimeGMT("Thu, 13 Oct 2005 15:19:05 GMT"),
-					Type:    "link",
+					Type:    OutlineTypeLink,
 					URL:     "http://tech.memeorandum.com/index.opml",
 				},
 				{
 					Text:    "DaveNet archive",
 					Created: mustParseTimeGMT("Wed, 12 Oct 2005 01:39:56 GMT"),
-					Type:    "link",
+					Type:    OutlineTypeLink,
 					URL:     "http://davenet.opml.org/index.opml",
 				},
 			},
@@ -107,7 +107,7 @@ var (
 		XMLName: xml.Name{
 			Local: "opml",
 		},
-		Version: "2.0",
+		Version: Version2,
 		Head: Head{
 			Title:           "workspace.userlandsamples.doSomeUpstreaming",
 			DateCreated:     mustParseTimeGMT("Mon, 11 Feb 2002 22:48:02 GMT"),
@@ -177,7 +177,7 @@ var (
 		XMLName: xml.Name{
 			Local: "opml",
 		},
-		Version: "2.0",
+		Version: Version2,
 		Head: Head{
 			Title:           "states.opml",
 			DateCreated:     mustParseTimeGMT("Tue, 15 Mar 2005 16:35:45 GMT"),
@@ -316,7 +316,7 @@ var (
 		XMLName: xml.Name{
 			Local: "opml",
 		},
-		Version: "2.0",
+		Version: Version2,
 		Head: Head{
 			Title:           "mySubscriptions.opml",
 			DateCreated:     mustParseTimeGMT("Sat, 18 Jun 2005 12:11:52 GMT"),
@@ -333,8 +333,8 @@ var (
 			Outlines: []Outline{
 				{
 					Text:        "CNET News.com",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "CNET News.com",
 					Description: "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.",
 					Language:    "unknown",
@@ -343,8 +343,8 @@ var (
 				},
 				{
 					Text:        "washingtonpost.com - Politics",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "washingtonpost.com - Politics",
 					Description: "Politics",
 					Language:    "unknown",
@@ -353,8 +353,8 @@ var (
 				},
 				{
 					Text:        "Scobleizer: Microsoft Geek Blogger",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "Scobleizer: Microsoft Geek Blogger",
 					Description: "Robert Scoble's look at geek and Microsoft life.",
 					Language:    "unknown",
@@ -363,8 +363,8 @@ var (
 				},
 				{
 					Text:        "Yahoo! News: Technology",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "Yahoo! News: Technology",
 					Description: "Technology",
 					Language:    "unknown",
@@ -373,8 +373,8 @@ var (
 				},
 				{
 					Text:        "Workbench",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "Workbench",
 					Description: "Programming and publishing news and comment",
 					Language:    "unknown",
@@ -383,8 +383,8 @@ var (
 				},
 				{
 					Text:        "Christian Science Monitor | Top Stories",
-					Type:        "rss",
-					Version:     "RSS",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion1,
 					Title:       "Christian Science Monitor | Top Stories",
 					Description: "Read the front page stories of csmonitor.com.",
 					Language:    "unknown",
@@ -393,8 +393,8 @@ var (
 				},
 				{
 					Text:        "Dictionary.com Word of the Day",
-					Type:        "rss",
-					Version:     "RSS",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion1,
 					Title:       "Dictionary.com Word of the Day",
 					Description: "A new word is presented every day with its definition and example sentences from actual published works.",
 					Language:    "unknown",
@@ -403,8 +403,8 @@ var (
 				},
 				{
 					Text:        "The Motley Fool",
-					Type:        "rss",
-					Version:     "RSS",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion1,
 					Title:       "The Motley Fool",
 					Description: "To Educate, Amuse, and Enrich",
 					Language:    "unknown",
@@ -413,8 +413,8 @@ var (
 				},
 				{
 					Text:        "InfoWorld: Top News",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "InfoWorld: Top News",
 					Description: "The latest on Top News from InfoWorld",
 					Language:    "unknown",
@@ -423,8 +423,8 @@ var (
 				},
 				{
 					Text:        "NYT > Business",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "NYT > Business",
 					Description: "Find breaking news & business news on Wall Street, media & advertising, international business, banking, interest rates, the stock market, currencies & funds.",
 					Language:    "unknown",
@@ -434,7 +434,7 @@ var (
 				{
 					Text:     "NYT > Technology",
 					Type:     "rss",
-					Version:  "RSS2",
+					Version:  RSSVersion2,
 					Title:    "NYT > Technology",
 					Language: "unknown",
 					HTMLURL:  "http://www.nytimes.com/pages/technology/index.html?partner=rssnyt",
@@ -442,8 +442,8 @@ var (
 				},
 				{
 					Text:        "Scripting News",
-					Type:        "rss",
-					Version:     "RSS2",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion2,
 					Title:       "Scripting News",
 					Description: "It's even worse than it appears.",
 					Language:    "unknown",
@@ -452,8 +452,8 @@ var (
 				},
 				{
 					Text:        "Wired News",
-					Type:        "rss",
-					Version:     "RSS",
+					Type:        OutlineTypeRSS,
+					Version:     RSSVersion1,
 					Title:       "Wired News",
 					Description: "Technology, and the way we do business, is changing the world we know. Wired News is a technology - and business-oriented news service feeding an intelligent, discerning audience. What role does technology play in the day-to-day living of your life? Wired News tells you. How has evolving technology changed the face of the international business world? Wired News puts you in the picture.",
 					Language:    "unknown",
