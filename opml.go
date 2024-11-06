@@ -14,47 +14,47 @@ import (
 //
 // See https://opml.org/spec2.opml for details on the OPML specification.
 type Document struct {
-	XMLName xml.Name `xml:"opml"`
-	Version string   `xml:"version,attr"`
-	Head    Head     `xml:"head"`
-	Body    Body     `xml:"body"`
+	XMLName xml.Name `xml:"opml" json:"-"`
+	Version string   `xml:"version,attr" json:"version"`
+	Head    Head     `xml:"head" json:"head"`
+	Body    Body     `xml:"body" json:"body"`
 }
 
 // A Head contains the metadata for the OPML Document.
 type Head struct {
 	// The title of the document.
-	Title string
+	Title string `json:"title"`
 
 	// The date the document was created.
-	DateCreated time.Time
+	DateCreated time.Time `json:"date_created,omitempty"`
 
 	// The date indicating when the document was last modified.
-	DateModified time.Time
+	DateModified time.Time `json:"date_modified,omitempty"`
 
 	// The owner of the document.
-	OwnerName string
+	OwnerName string `json:"owner_name,omitempty"`
 
 	// The email address of the owner of the document.
-	OwnerEmail string
+	OwnerEmail string `json:"owner_email,omitempty"`
 
 	// A list of line numbers that are expanded.
 	// The line numbers in the list indicate which headlines to expand.
-	ExpansionStates []int
+	ExpansionStates []int `json:"expansion_states,omitempty"`
 
 	// A number, saying which  line of the outline is displayed on the top line of the window.
-	VertScrollState int
+	VertScrollState int `json:"vert_scroll_state,omitempty"`
 
 	// The pixel location of the top edge of the window.
-	WindowTop int
+	WindowTop int `json:"window_top,omitempty"`
 
 	// The pixel location of the left edge of the window.
-	WindowLeft int
+	WindowLeft int `json:"window_left,omitempty"`
 
 	// The pixel location of the bottom edge of the window.
-	WindowBottom int
+	WindowBottom int `json:"window_bottom,omitempty"`
 
 	// The pixel location of the right edge of the window.
-	WindowRight int
+	WindowRight int `json:"window_right,omitempty"`
 }
 
 type xmlHead struct {
@@ -162,54 +162,54 @@ func (h *Head) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 
 // A Body contains one or more Outline elements.
 type Body struct {
-	Outlines []Outline `xml:"outline"`
+	Outlines []Outline `xml:"outline" json:"outlines"`
 }
 
 // An Outline represents a text element, a subscription list item or a directory.
 type Outline struct {
 	// The Text that is displayed when an outliner opens the OPML document.
-	Text string
+	Text string `json:"text"`
 
 	// Special: The Type indicates how the attributes of the Outline are interpreted.
-	Type string
+	Type string `json:"type,omitempty"`
 
 	// Special: Indicates whether a breakpoint is set on this outline.
-	IsBreakpoint bool
+	IsBreakpoint bool `json:"is_breakpoint,omitempty"`
 
 	// Special: Indicates whether the outline is commented.
 	//
 	// If an outline is commented, all subordinate outlines are considered to also be commented.
-	IsComment bool
+	IsComment bool `json:"is_comment,omitempty"`
 
 	// Special: A list of category strings.
-	Categories []string
+	Categories []string `json:"categories,omitempty"`
 
 	// Special: The date when the outline node was created.
-	Created time.Time
+	Created time.Time `json:"created,omitempty"`
 
 	// Inclusion: The HTTP address of the included link.
-	URL string
+	URL string `json:"url,omitempty"`
 
 	// Subscription: Version of RSS/Atom that is being supplied by the feed.
-	Version string
+	Version string `json:"version,omitempty"`
 
 	// Subscription: Title is the top-level title from the feed.
-	Title string
+	Title string `json:"title,omitempty"`
 
 	// Subscription: Description is the top-level description element from the feed.
-	Description string
+	Description string `json:"description,omitempty"`
 
 	// Subscription: Language is the top-level language element for the feed.
-	Language string
+	Language string `json:"language,omitempty"`
 
 	// Subscription: HTMLURL is the top-level link element from the feed.
-	HTMLURL string
+	HTMLURL string `json:"htmlurl,omitempty"`
 
 	// Subscription: XMLURL is the address of the feed.
-	XMLURL string
+	XMLURL string `json:"xmlurl,omitempty"`
 
 	// Directory: Subordinated outlines, arbitrarily structured.
-	Outlines []Outline
+	Outlines []Outline `json:"outlines,omitempty"`
 }
 
 type xmlOutline struct {
