@@ -103,6 +103,76 @@ var (
 		},
 	}
 
+	specDocumentPlacesLived = Document{
+		XMLName: xml.Name{
+			Local: "opml",
+		},
+		Version: Version2,
+		Head: Head{
+			Title:           "placesLived.opml",
+			DateCreated:     mustParseTimeGMT("Mon, 27 Feb 2006 12:09:48 GMT"),
+			DateModified:    mustParseTimeGMT("Mon, 27 Feb 2006 12:11:44 GMT"),
+			OwnerName:       "Dave Winer",
+			ExpansionState:  []int{1, 2, 5, 10, 13, 15},
+			VertScrollState: 1,
+			WindowTop:       242,
+			WindowLeft:      329,
+			WindowBottom:    665,
+			WindowRight:     547,
+		},
+		Body: Body{
+			Outlines: []Outline{
+				{
+					Text: "Places I've lived",
+					Outlines: []Outline{
+						{
+							Text: "Boston",
+							Outlines: []Outline{
+								{Text: "Cambridge"},
+								{Text: "West Newton"},
+							},
+						},
+						{
+							Text: "Bay Area",
+							Outlines: []Outline{
+								{Text: "Mountain View"},
+								{Text: "Los Gatos"},
+								{Text: "Palo Alto"},
+								{Text: "Woodside"},
+							},
+						},
+						{
+							Text: "New Orleans",
+							Outlines: []Outline{
+								{Text: "Uptown"},
+								{Text: "Metairie"},
+							},
+						},
+						{
+							Text: "Wisconsin",
+							Outlines: []Outline{
+								{Text: "Madison"},
+							},
+						},
+						{
+							Text: "Florida",
+							Type: OutlineTypeInclusion,
+							Url:  "http://hosting.opml.org/dave/florida.opml",
+						},
+						{
+							Text: "New York",
+							Outlines: []Outline{
+								{Text: "Jackson Heights"},
+								{Text: "Flushing"},
+								{Text: "The Bronx"},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
 	specDocumentSimpleScript = Document{
 		XMLName: xml.Name{
 			Local: "opml",
@@ -482,6 +552,11 @@ func TestMarshalFileSpec(t *testing.T) {
 			referenceFileName: "directory.opml",
 		},
 		{
+			tname:             "places lived",
+			document:          specDocumentPlacesLived,
+			referenceFileName: "placesLived.opml",
+		},
+		{
 			tname:             "simple script",
 			document:          specDocumentSimpleScript,
 			referenceFileName: "simpleScript.opml",
@@ -538,6 +613,11 @@ func TestUnmarshalFileSpec(t *testing.T) {
 			tname:         "directory",
 			inputFileName: "directory.opml",
 			want:          specDocumentDirectory,
+		},
+		{
+			tname:         "places lived",
+			inputFileName: "placesLived.opml",
+			want:          specDocumentPlacesLived,
 		},
 		{
 			tname:         "simple script",

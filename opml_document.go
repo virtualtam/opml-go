@@ -19,8 +19,9 @@ type (
 const (
 	Version2 string = "2.0"
 
-	OutlineTypeLink OutlineType = "link"
-	OutlineTypeRSS  OutlineType = "rss"
+	OutlineTypeInclusion OutlineType = "include"
+	OutlineTypeLink      OutlineType = "link"
+	OutlineTypeRSS       OutlineType = "rss"
 
 	RSSVersion1 RSSVersion = "RSS"
 	RSSVersion2 RSSVersion = "RSS2"
