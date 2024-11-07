@@ -58,46 +58,46 @@ var (
 					Text:    "Scripting News sites",
 					Created: mustParseTimeGMT("Sun, 16 Oct 2005 05:56:10 GMT"),
 					Type:    OutlineTypeLink,
-					URL:     "http://hosting.opml.org/dave/mySites.opml",
+					Url:     "http://hosting.opml.org/dave/mySites.opml",
 				},
 				{
 					Text:    "News.Com top 100 OPML",
 					Created: mustParseTimeGMT("Tue, 25 Oct 2005 21:33:28 GMT"),
 					Type:    OutlineTypeLink,
-					URL:     "http://news.com.com/html/ne/blogs/CNETNewsBlog100.opml",
+					Url:     "http://news.com.com/html/ne/blogs/CNETNewsBlog100.opml",
 				},
 				{
 					Text:    "BloggerCon III Blogroll",
 					Created: mustParseTimeGMT("Mon, 24 Oct 2005 05:23:52 GMT"),
 					Type:    OutlineTypeLink,
-					URL:     "http://static.bloggercon.org/iii/blogroll.opml",
+					Url:     "http://static.bloggercon.org/iii/blogroll.opml",
 				},
 				{
 					Text: "TechCrunch reviews",
 					Type: OutlineTypeLink,
-					URL:  "http://hosting.opml.org/techcrunch.opml.org/TechCrunch.opml",
+					Url:  "http://hosting.opml.org/techcrunch.opml.org/TechCrunch.opml",
 				},
 				{
 					Text: "Tod Maffin's directory of Public Radio podcasts",
 					Type: OutlineTypeLink,
-					URL:  "http://todmaffin.com/radio.opml",
+					Url:  "http://todmaffin.com/radio.opml",
 				},
 				{
 					Text: "Adam Curry's iPodder.org directory",
 					Type: OutlineTypeLink,
-					URL:  "http://homepage.mac.com/dailysourcecode/DSC/ipodderDirectory.opml",
+					Url:  "http://homepage.mac.com/dailysourcecode/DSC/ipodderDirectory.opml",
 				},
 				{
 					Text:    "Memeorandum",
 					Created: mustParseTimeGMT("Thu, 13 Oct 2005 15:19:05 GMT"),
 					Type:    OutlineTypeLink,
-					URL:     "http://tech.memeorandum.com/index.opml",
+					Url:     "http://tech.memeorandum.com/index.opml",
 				},
 				{
 					Text:    "DaveNet archive",
 					Created: mustParseTimeGMT("Wed, 12 Oct 2005 01:39:56 GMT"),
 					Type:    OutlineTypeLink,
-					URL:     "http://davenet.opml.org/index.opml",
+					Url:     "http://davenet.opml.org/index.opml",
 				},
 			},
 		},
@@ -338,8 +338,8 @@ var (
 					Title:       "CNET News.com",
 					Description: "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.",
 					Language:    "unknown",
-					HTMLURL:     "http://news.com.com/",
-					XMLURL:      "http://news.com.com/2547-1_3-0-5.xml",
+					HtmlUrl:     "http://news.com.com/",
+					XmlUrl:      "http://news.com.com/2547-1_3-0-5.xml",
 				},
 				{
 					Text:        "washingtonpost.com - Politics",
@@ -348,8 +348,8 @@ var (
 					Title:       "washingtonpost.com - Politics",
 					Description: "Politics",
 					Language:    "unknown",
-					HTMLURL:     "http://www.washingtonpost.com/wp-dyn/politics?nav=rss_politics",
-					XMLURL:      "http://www.washingtonpost.com/wp-srv/politics/rssheadlines.xml",
+					HtmlUrl:     "http://www.washingtonpost.com/wp-dyn/politics?nav=rss_politics",
+					XmlUrl:      "http://www.washingtonpost.com/wp-srv/politics/rssheadlines.xml",
 				},
 				{
 					Text:        "Scobleizer: Microsoft Geek Blogger",
@@ -358,8 +358,8 @@ var (
 					Title:       "Scobleizer: Microsoft Geek Blogger",
 					Description: "Robert Scoble's look at geek and Microsoft life.",
 					Language:    "unknown",
-					HTMLURL:     "http://radio.weblogs.com/0001011/",
-					XMLURL:      "http://radio.weblogs.com/0001011/rss.xml",
+					HtmlUrl:     "http://radio.weblogs.com/0001011/",
+					XmlUrl:      "http://radio.weblogs.com/0001011/rss.xml",
 				},
 				{
 					Text:        "Yahoo! News: Technology",
@@ -368,8 +368,8 @@ var (
 					Title:       "Yahoo! News: Technology",
 					Description: "Technology",
 					Language:    "unknown",
-					HTMLURL:     "http://news.yahoo.com/news?tmpl=index&cid=738",
-					XMLURL:      "http://rss.news.yahoo.com/rss/tech",
+					HtmlUrl:     "http://news.yahoo.com/news?tmpl=index&cid=738",
+					XmlUrl:      "http://rss.news.yahoo.com/rss/tech",
 				},
 				{
 					Text:        "Workbench",
@@ -378,8 +378,8 @@ var (
 					Title:       "Workbench",
 					Description: "Programming and publishing news and comment",
 					Language:    "unknown",
-					HTMLURL:     "http://www.cadenhead.org/workbench/",
-					XMLURL:      "http://www.cadenhead.org/workbench/rss.xml",
+					HtmlUrl:     "http://www.cadenhead.org/workbench/",
+					XmlUrl:      "http://www.cadenhead.org/workbench/rss.xml",
 				},
 				{
 					Text:        "Christian Science Monitor | Top Stories",
@@ -388,8 +388,8 @@ var (
 					Title:       "Christian Science Monitor | Top Stories",
 					Description: "Read the front page stories of csmonitor.com.",
 					Language:    "unknown",
-					HTMLURL:     "http://csmonitor.com",
-					XMLURL:      "http://www.csmonitor.com/rss/top.rss",
+					HtmlUrl:     "http://csmonitor.com",
+					XmlUrl:      "http://www.csmonitor.com/rss/top.rss",
 				},
 				{
 					Text:        "Dictionary.com Word of the Day",
@@ -398,8 +398,8 @@ var (
 					Title:       "Dictionary.com Word of the Day",
 					Description: "A new word is presented every day with its definition and example sentences from actual published works.",
 					Language:    "unknown",
-					HTMLURL:     "http://dictionary.reference.com/wordoftheday/",
-					XMLURL:      "http://www.dictionary.com/wordoftheday/wotd.rss",
+					HtmlUrl:     "http://dictionary.reference.com/wordoftheday/",
+					XmlUrl:      "http://www.dictionary.com/wordoftheday/wotd.rss",
 				},
 				{
 					Text:        "The Motley Fool",
@@ -408,8 +408,8 @@ var (
 					Title:       "The Motley Fool",
 					Description: "To Educate, Amuse, and Enrich",
 					Language:    "unknown",
-					HTMLURL:     "http://www.fool.com",
-					XMLURL:      "http://www.fool.com/xml/foolnews_rss091.xml",
+					HtmlUrl:     "http://www.fool.com",
+					XmlUrl:      "http://www.fool.com/xml/foolnews_rss091.xml",
 				},
 				{
 					Text:        "InfoWorld: Top News",
@@ -418,8 +418,8 @@ var (
 					Title:       "InfoWorld: Top News",
 					Description: "The latest on Top News from InfoWorld",
 					Language:    "unknown",
-					HTMLURL:     "http://www.infoworld.com/news/index.html",
-					XMLURL:      "http://www.infoworld.com/rss/news.xml",
+					HtmlUrl:     "http://www.infoworld.com/news/index.html",
+					XmlUrl:      "http://www.infoworld.com/rss/news.xml",
 				},
 				{
 					Text:        "NYT > Business",
@@ -428,8 +428,8 @@ var (
 					Title:       "NYT > Business",
 					Description: "Find breaking news & business news on Wall Street, media & advertising, international business, banking, interest rates, the stock market, currencies & funds.",
 					Language:    "unknown",
-					HTMLURL:     "http://www.nytimes.com/pages/business/index.html?partner=rssnyt",
-					XMLURL:      "http://www.nytimes.com/services/xml/rss/nyt/Business.xml",
+					HtmlUrl:     "http://www.nytimes.com/pages/business/index.html?partner=rssnyt",
+					XmlUrl:      "http://www.nytimes.com/services/xml/rss/nyt/Business.xml",
 				},
 				{
 					Text:     "NYT > Technology",
@@ -437,8 +437,8 @@ var (
 					Version:  RSSVersion2,
 					Title:    "NYT > Technology",
 					Language: "unknown",
-					HTMLURL:  "http://www.nytimes.com/pages/technology/index.html?partner=rssnyt",
-					XMLURL:   "http://www.nytimes.com/services/xml/rss/nyt/Technology.xml",
+					HtmlUrl:  "http://www.nytimes.com/pages/technology/index.html?partner=rssnyt",
+					XmlUrl:   "http://www.nytimes.com/services/xml/rss/nyt/Technology.xml",
 				},
 				{
 					Text:        "Scripting News",
@@ -447,8 +447,8 @@ var (
 					Title:       "Scripting News",
 					Description: "It's even worse than it appears.",
 					Language:    "unknown",
-					HTMLURL:     "http://www.scripting.com/",
-					XMLURL:      "http://www.scripting.com/rss.xml",
+					HtmlUrl:     "http://www.scripting.com/",
+					XmlUrl:      "http://www.scripting.com/rss.xml",
 				},
 				{
 					Text:        "Wired News",
@@ -457,8 +457,8 @@ var (
 					Title:       "Wired News",
 					Description: "Technology, and the way we do business, is changing the world we know. Wired News is a technology - and business-oriented news service feeding an intelligent, discerning audience. What role does technology play in the day-to-day living of your life? Wired News tells you. How has evolving technology changed the face of the international business world? Wired News puts you in the picture.",
 					Language:    "unknown",
-					HTMLURL:     "http://www.wired.com/",
-					XMLURL:      "http://www.wired.com/news_drop/netcenter/netcenter.rdf",
+					HtmlUrl:     "http://www.wired.com/",
+					XmlUrl:      "http://www.wired.com/news_drop/netcenter/netcenter.rdf",
 				},
 			},
 		},
@@ -655,8 +655,8 @@ func assertOutlinesEqual(t *testing.T, gotOutlines, wantOutlines []Outline) {
 		if gotOutline.Type != wantOutline.Type {
 			t.Errorf("want Outline %d Type %q, got %q", index, wantOutline.Type, gotOutline.Type)
 		}
-		if gotOutline.URL != wantOutline.URL {
-			t.Errorf("want Outline %d URL %q, got %q", index, wantOutline.URL, gotOutline.URL)
+		if gotOutline.Url != wantOutline.Url {
+			t.Errorf("want Outline %d URL %q, got %q", index, wantOutline.Url, gotOutline.Url)
 		}
 
 		if gotOutline.Version != wantOutline.Version {
@@ -671,11 +671,11 @@ func assertOutlinesEqual(t *testing.T, gotOutlines, wantOutlines []Outline) {
 		if gotOutline.Language != wantOutline.Language {
 			t.Errorf("want Outline %d Language %q, got %q", index, wantOutline.Language, gotOutline.Language)
 		}
-		if gotOutline.HTMLURL != wantOutline.HTMLURL {
-			t.Errorf("want Outline %d HTMLURL %q, got %q", index, wantOutline.HTMLURL, gotOutline.HTMLURL)
+		if gotOutline.HtmlUrl != wantOutline.HtmlUrl {
+			t.Errorf("want Outline %d HTMLURL %q, got %q", index, wantOutline.HtmlUrl, gotOutline.HtmlUrl)
 		}
-		if gotOutline.XMLURL != wantOutline.XMLURL {
-			t.Errorf("want Outline %d XMLURL %q, got %q", index, wantOutline.XMLURL, gotOutline.XMLURL)
+		if gotOutline.XmlUrl != wantOutline.XmlUrl {
+			t.Errorf("want Outline %d XMLURL %q, got %q", index, wantOutline.XmlUrl, gotOutline.XmlUrl)
 		}
 
 		if gotOutline.IsBreakpoint != wantOutline.IsBreakpoint {

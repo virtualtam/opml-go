@@ -52,8 +52,6 @@ func ExampleUnmarshal() {
 	//   "version": "2.0",
 	//   "head": {
 	//     "title": "Feed subscriptions",
-	//     "date_created": "0001-01-01T00:00:00Z",
-	//     "date_modified": "0001-01-01T00:00:00Z",
 	//     "owner_name": "Jane Doe",
 	//     "owner_email": "jane@thedo.es"
 	//   },
@@ -61,55 +59,48 @@ func ExampleUnmarshal() {
 	//     "outlines": [
 	//       {
 	//         "text": "Linux",
-	//         "created": "0001-01-01T00:00:00Z",
 	//         "title": "Linux",
 	//         "outlines": [
 	//           {
 	//             "text": "Bits from Debian",
-	//             "type": "rss",
-	//             "created": "0001-01-01T00:00:00Z",
+	//             "html_url": "https://bits.debian.org/feeds/atom.xml",
 	//             "title": "Bits from Debian",
-	//             "htmlurl": "https://bits.debian.org/feeds/atom.xml",
-	//             "xmlurl": "https://bits.debian.org/feeds/atom.xml"
+	//             "type": "rss",
+	//             "xml_url": "https://bits.debian.org/feeds/atom.xml"
 	//           },
 	//           {
 	//             "text": "KXStudio News",
-	//             "type": "rss",
-	//             "created": "0001-01-01T00:00:00Z",
+	//             "html_url": "https://kx.studio/News",
 	//             "title": "KXStudio News",
-	//             "htmlurl": "https://kx.studio/News",
-	//             "xmlurl": "https://kx.studio/News/?action=feed"
+	//             "type": "rss",
+	//             "xml_url": "https://kx.studio/News/?action=feed"
 	//           }
 	//         ]
 	//       },
 	//       {
 	//         "text": "Social News",
-	//         "created": "0001-01-01T00:00:00Z",
 	//         "title": "Social News",
 	//         "outlines": [
 	//           {
 	//             "text": "Hacker News",
-	//             "type": "rss",
-	//             "created": "0001-01-01T00:00:00Z",
+	//             "html_url": "https://news.ycombinator.com/",
 	//             "title": "Hacker News",
-	//             "htmlurl": "https://news.ycombinator.com/",
-	//             "xmlurl": "https://news.ycombinator.com/rss"
+	//             "type": "rss",
+	//             "xml_url": "https://news.ycombinator.com/rss"
 	//           },
 	//           {
 	//             "text": "Lobsters",
-	//             "type": "rss",
-	//             "created": "0001-01-01T00:00:00Z",
+	//             "html_url": "https://lobste.rs",
 	//             "title": "Lobsters",
-	//             "htmlurl": "https://lobste.rs",
-	//             "xmlurl": "https://lobste.rs/rss"
+	//             "type": "rss",
+	//             "xml_url": "https://lobste.rs/rss"
 	//           },
 	//           {
 	//             "text": "Phoronix",
-	//             "type": "rss",
-	//             "created": "0001-01-01T00:00:00Z",
+	//             "html_url": "https://www.phoronix.com/",
 	//             "title": "Phoronix",
-	//             "htmlurl": "https://www.phoronix.com/",
-	//             "xmlurl": "https://www.phoronix.com/rss.php"
+	//             "type": "rss",
+	//             "xml_url": "https://www.phoronix.com/rss.php"
 	//           }
 	//         ]
 	//       }
