@@ -25,14 +25,14 @@ func ExampleMarshal() {
 					Title: "Linux",
 					Outlines: []opml.Outline{
 						{
-							Type:    opml.OutlineTypeRSS,
+							Type:    opml.OutlineTypeSubscription,
 							Text:    "Bits from Debian",
 							Title:   "Bits from Debian",
 							HtmlUrl: "https://bits.debian.org/feeds/atom.xml",
 							XmlUrl:  "https://bits.debian.org/feeds/atom.xml",
 						},
 						{
-							Type:    opml.OutlineTypeRSS,
+							Type:    opml.OutlineTypeSubscription,
 							Text:    "KXStudio News",
 							Title:   "KXStudio News",
 							HtmlUrl: "https://kx.studio/News",
@@ -45,21 +45,21 @@ func ExampleMarshal() {
 					Title: "Social News",
 					Outlines: []opml.Outline{
 						{
-							Type:    opml.OutlineTypeRSS,
+							Type:    opml.OutlineTypeSubscription,
 							Text:    "Hacker News",
 							Title:   "Hacker News",
 							HtmlUrl: "https://news.ycombinator.com/",
 							XmlUrl:  "https://news.ycombinator.com/rss",
 						},
 						{
-							Type:    opml.OutlineTypeRSS,
+							Type:    opml.OutlineTypeSubscription,
 							Text:    "Lobsters",
 							Title:   "Lobsters",
 							HtmlUrl: "https://lobste.rs",
 							XmlUrl:  "https://lobste.rs/rss",
 						},
 						{
-							Type:    opml.OutlineTypeRSS,
+							Type:    opml.OutlineTypeSubscription,
 							Text:    "Phoronix",
 							Title:   "Phoronix",
 							HtmlUrl: "https://www.phoronix.com/",

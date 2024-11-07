@@ -403,7 +403,7 @@ var (
 			Outlines: []Outline{
 				{
 					Text:        "CNET News.com",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "CNET News.com",
 					Description: "Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.",
@@ -413,7 +413,7 @@ var (
 				},
 				{
 					Text:        "washingtonpost.com - Politics",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "washingtonpost.com - Politics",
 					Description: "Politics",
@@ -423,7 +423,7 @@ var (
 				},
 				{
 					Text:        "Scobleizer: Microsoft Geek Blogger",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "Scobleizer: Microsoft Geek Blogger",
 					Description: "Robert Scoble's look at geek and Microsoft life.",
@@ -433,7 +433,7 @@ var (
 				},
 				{
 					Text:        "Yahoo! News: Technology",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "Yahoo! News: Technology",
 					Description: "Technology",
@@ -443,7 +443,7 @@ var (
 				},
 				{
 					Text:        "Workbench",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "Workbench",
 					Description: "Programming and publishing news and comment",
@@ -453,7 +453,7 @@ var (
 				},
 				{
 					Text:        "Christian Science Monitor | Top Stories",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion1,
 					Title:       "Christian Science Monitor | Top Stories",
 					Description: "Read the front page stories of csmonitor.com.",
@@ -463,7 +463,7 @@ var (
 				},
 				{
 					Text:        "Dictionary.com Word of the Day",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion1,
 					Title:       "Dictionary.com Word of the Day",
 					Description: "A new word is presented every day with its definition and example sentences from actual published works.",
@@ -473,7 +473,7 @@ var (
 				},
 				{
 					Text:        "The Motley Fool",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion1,
 					Title:       "The Motley Fool",
 					Description: "To Educate, Amuse, and Enrich",
@@ -483,7 +483,7 @@ var (
 				},
 				{
 					Text:        "InfoWorld: Top News",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "InfoWorld: Top News",
 					Description: "The latest on Top News from InfoWorld",
@@ -493,7 +493,7 @@ var (
 				},
 				{
 					Text:        "NYT > Business",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "NYT > Business",
 					Description: "Find breaking news & business news on Wall Street, media & advertising, international business, banking, interest rates, the stock market, currencies & funds.",
@@ -512,7 +512,7 @@ var (
 				},
 				{
 					Text:        "Scripting News",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion2,
 					Title:       "Scripting News",
 					Description: "It's even worse than it appears.",
@@ -522,7 +522,7 @@ var (
 				},
 				{
 					Text:        "Wired News",
-					Type:        OutlineTypeRSS,
+					Type:        OutlineTypeSubscription,
 					Version:     RSSVersion1,
 					Title:       "Wired News",
 					Description: "Technology, and the way we do business, is changing the world we know. Wired News is a technology - and business-oriented news service feeding an intelligent, discerning audience. What role does technology play in the day-to-day living of your life? Wired News tells you. How has evolving technology changed the face of the international business world? Wired News puts you in the picture.",
