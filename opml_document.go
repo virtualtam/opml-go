@@ -17,6 +17,7 @@ type (
 )
 
 const (
+	Version1   string = "1.0"
 	Version1_1 string = "1.1"
 	Version2   string = "2.0"
 

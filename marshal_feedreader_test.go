@@ -10,6 +10,65 @@ import (
 )
 
 var (
+	feedReaderDocumentFeedly = Document{
+		XMLName: xml.Name{Local: "opml"},
+		Version: Version1,
+		Head: Head{
+			Title: "My subscriptions in feedly Cloud",
+		},
+		Body: Body{
+			Outlines: []Outline{
+				{
+					Text:  "Programming",
+					Title: "Programming",
+					Outlines: []Outline{
+						{
+							Text:    "Elixir Lang",
+							Title:   "Elixir Lang",
+							Type:    OutlineTypeSubscription,
+							HtmlUrl: "http://elixir-lang.org",
+							XmlUrl:  "https://feeds.feedburner.com/ElixirLang",
+						},
+						{
+							Text:    "Zephyr Project",
+							Title:   "Zephyr Project",
+							Type:    OutlineTypeSubscription,
+							HtmlUrl: "https://www.zephyrproject.org",
+							XmlUrl:  "https://www.zephyrproject.org/feed/",
+						},
+						{
+							Text:    "Python Insider",
+							Title:   "Python Insider",
+							Type:    OutlineTypeSubscription,
+							HtmlUrl: "https://pythoninsider.blogspot.com/",
+							XmlUrl:  "https://feeds.feedburner.com/PythonInsider",
+						},
+					},
+				},
+				{
+					Text:  "Games",
+					Title: "Games",
+					Outlines: []Outline{
+						{
+							Text:    "BeamNG.drive",
+							Title:   "BeamNG.drive",
+							Type:    OutlineTypeSubscription,
+							HtmlUrl: "https://www.beamng.com/game/",
+							XmlUrl:  "https://www.beamng.com/game/index.xml",
+						},
+						{
+							Text:    "Vintage Story",
+							Title:   "Vintage Story",
+							Type:    OutlineTypeSubscription,
+							HtmlUrl: "https://www.vintagestory.at/blog.html/",
+							XmlUrl:  "https://www.vintagestory.at/blog.html/?rss=1",
+						},
+					},
+				},
+			},
+		},
+	}
+
 	feedReaderDocumentNewsblur = Document{
 		XMLName: xml.Name{Local: "opml"},
 		Version: Version1_1,
@@ -91,6 +150,11 @@ func TestUnmarshalFeedReader(t *testing.T) {
 		inputFileName string
 		want          Document
 	}{
+		{
+			tname:         "feedly",
+			inputFileName: "feedly.opml",
+			want:          feedReaderDocumentFeedly,
+		},
 		{
 			tname:         "newsblur",
 			inputFileName: "newsblur.opml",

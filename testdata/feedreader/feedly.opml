@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<opml version="1.0">
+    <head>
+        <title>My subscriptions in feedly Cloud</title>
+    </head>
+    <body>
+        <outline text="Programming" title="Programming">
+            <outline type="rss" text="Elixir Lang" title="Elixir Lang" xmlUrl="https://feeds.feedburner.com/ElixirLang" htmlUrl="http://elixir-lang.org"/>
+            <outline type="rss" text="Zephyr Project" title="Zephyr Project" xmlUrl="https://www.zephyrproject.org/feed/" htmlUrl="https://www.zephyrproject.org"/>
+            <outline type="rss" text="Python Insider" title="Python Insider" xmlUrl="https://feeds.feedburner.com/PythonInsider" htmlUrl="https://pythoninsider.blogspot.com/"/>
+        </outline>
+        <outline text="Games" title="Games">
+            <outline type="rss" text="BeamNG.drive" title="BeamNG.drive" xmlUrl="https://www.beamng.com/game/index.xml" htmlUrl="https://www.beamng.com/game/"/>
+            <outline type="rss" text="Vintage Story" title="Vintage Story" xmlUrl="https://www.vintagestory.at/blog.html/?rss=1" htmlUrl="https://www.vintagestory.at/blog.html/"/>
+        </outline>
+    </body>
+</opml>
