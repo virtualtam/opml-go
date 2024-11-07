@@ -17,7 +17,8 @@ type (
 )
 
 const (
-	Version2 string = "2.0"
+	Version1_1 string = "1.1"
+	Version2   string = "2.0"
 
 	OutlineTypeInclusion    OutlineType = "include"
 	OutlineTypeLink         OutlineType = "link"
@@ -129,10 +130,10 @@ func newMarshalableHead(h *Head) marshalableHead {
 	}
 
 	if !h.DateCreated.IsZero() {
-		mHead.DateCreatedStr = formatRFC1123Time(h.DateCreated)
+		mHead.DateCreatedStr = encodeRFC1123Time(h.DateCreated)
 	}
 	if !h.DateModified.IsZero() {
-		mHead.DateModifiedStr = formatRFC1123Time(h.DateModified)
+		mHead.DateModifiedStr = encodeRFC1123Time(h.DateModified)
 	}
 
 	if len(h.ExpansionState) > 0 {
@@ -160,7 +161,7 @@ func (mHead *marshalableHead) toHead() (Head, error) {
 	}
 
 	if mHead.DateCreatedStr != "" {
-		dateCreated, err := parseRFC1123Time(mHead.DateCreatedStr)
+		dateCreated, err := decodeTime(mHead.DateCreatedStr)
 		if err != nil {
 			return Head{}, err
 		}
@@ -169,7 +170,7 @@ func (mHead *marshalableHead) toHead() (Head, error) {
 	}
 
 	if mHead.DateModifiedStr != "" {
-		dateModified, err := parseRFC1123Time(mHead.DateModifiedStr)
+		dateModified, err := decodeTime(mHead.DateModifiedStr)
 		if err != nil {
 			return Head{}, err
 		}
@@ -323,7 +324,7 @@ func newMarshalableOutline(o *Outline) marshalableOutline {
 	}
 
 	if !o.Created.IsZero() {
-		mOutline.CreatedStr = formatRFC1123Time(o.Created)
+		mOutline.CreatedStr = encodeRFC1123Time(o.Created)
 	}
 
 	return mOutline
@@ -360,7 +361,7 @@ func (mo *marshalableOutline) toOutline() (Outline, error) {
 	}
 
 	if mo.CreatedStr != "" {
-		created, err := parseRFC1123Time(mo.CreatedStr)
+		created, err := decodeTime(mo.CreatedStr)
 		if err != nil {
 			return Outline{}, err
 		}

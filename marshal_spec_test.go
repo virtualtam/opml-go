@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
-	"time"
 )
 
 var (
@@ -19,7 +18,7 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:       "Illustrating the category attribute",
-			DateCreated: mustParseTimeGMT("Mon, 31 Oct 2005 19:23:00 GMT"),
+			DateCreated: mustDecodeRFC1123Time("Mon, 31 Oct 2005 19:23:00 GMT"),
 		},
 		Body: Body{
 			Outlines: []Outline{
@@ -29,7 +28,7 @@ var (
 						"/Philosophy/Baseball/Mets",
 						"/Tourism/New York",
 					},
-					Created: mustParseTimeGMT("Mon, 31 Oct 2005 18:21:33 GMT"),
+					Created: mustDecodeRFC1123Time("Mon, 31 Oct 2005 18:21:33 GMT"),
 				},
 			},
 		},
@@ -42,8 +41,8 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:           "scriptingNewsDirectory.opml",
-			DateCreated:     mustParseTimeGMT("Thu, 13 Oct 2005 15:34:07 GMT"),
-			DateModified:    mustParseTimeGMT("Tue, 25 Oct 2005 21:33:57 GMT"),
+			DateCreated:     mustDecodeRFC1123Time("Thu, 13 Oct 2005 15:34:07 GMT"),
+			DateModified:    mustDecodeRFC1123Time("Tue, 25 Oct 2005 21:33:57 GMT"),
 			OwnerName:       "Dave Winer",
 			OwnerEmail:      "dwiner@yahoo.com",
 			VertScrollState: 1,
@@ -56,19 +55,19 @@ var (
 			Outlines: []Outline{
 				{
 					Text:    "Scripting News sites",
-					Created: mustParseTimeGMT("Sun, 16 Oct 2005 05:56:10 GMT"),
+					Created: mustDecodeRFC1123Time("Sun, 16 Oct 2005 05:56:10 GMT"),
 					Type:    OutlineTypeLink,
 					Url:     "http://hosting.opml.org/dave/mySites.opml",
 				},
 				{
 					Text:    "News.Com top 100 OPML",
-					Created: mustParseTimeGMT("Tue, 25 Oct 2005 21:33:28 GMT"),
+					Created: mustDecodeRFC1123Time("Tue, 25 Oct 2005 21:33:28 GMT"),
 					Type:    OutlineTypeLink,
 					Url:     "http://news.com.com/html/ne/blogs/CNETNewsBlog100.opml",
 				},
 				{
 					Text:    "BloggerCon III Blogroll",
-					Created: mustParseTimeGMT("Mon, 24 Oct 2005 05:23:52 GMT"),
+					Created: mustDecodeRFC1123Time("Mon, 24 Oct 2005 05:23:52 GMT"),
 					Type:    OutlineTypeLink,
 					Url:     "http://static.bloggercon.org/iii/blogroll.opml",
 				},
@@ -89,13 +88,13 @@ var (
 				},
 				{
 					Text:    "Memeorandum",
-					Created: mustParseTimeGMT("Thu, 13 Oct 2005 15:19:05 GMT"),
+					Created: mustDecodeRFC1123Time("Thu, 13 Oct 2005 15:19:05 GMT"),
 					Type:    OutlineTypeLink,
 					Url:     "http://tech.memeorandum.com/index.opml",
 				},
 				{
 					Text:    "DaveNet archive",
-					Created: mustParseTimeGMT("Wed, 12 Oct 2005 01:39:56 GMT"),
+					Created: mustDecodeRFC1123Time("Wed, 12 Oct 2005 01:39:56 GMT"),
 					Type:    OutlineTypeLink,
 					Url:     "http://davenet.opml.org/index.opml",
 				},
@@ -110,8 +109,8 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:           "placesLived.opml",
-			DateCreated:     mustParseTimeGMT("Mon, 27 Feb 2006 12:09:48 GMT"),
-			DateModified:    mustParseTimeGMT("Mon, 27 Feb 2006 12:11:44 GMT"),
+			DateCreated:     mustDecodeRFC1123Time("Mon, 27 Feb 2006 12:09:48 GMT"),
+			DateModified:    mustDecodeRFC1123Time("Mon, 27 Feb 2006 12:11:44 GMT"),
 			OwnerName:       "Dave Winer",
 			ExpansionState:  []int{1, 2, 5, 10, 13, 15},
 			VertScrollState: 1,
@@ -180,8 +179,8 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:           "workspace.userlandsamples.doSomeUpstreaming",
-			DateCreated:     mustParseTimeGMT("Mon, 11 Feb 2002 22:48:02 GMT"),
-			DateModified:    mustParseTimeGMT("Sun, 30 Oct 2005 03:30:17 GMT"),
+			DateCreated:     mustDecodeRFC1123Time("Mon, 11 Feb 2002 22:48:02 GMT"),
+			DateModified:    mustDecodeRFC1123Time("Sun, 30 Oct 2005 03:30:17 GMT"),
 			OwnerName:       "Dave Winer",
 			OwnerEmail:      "dwiner@yahoo.com",
 			ExpansionState:  []int{1, 2, 4},
@@ -250,8 +249,8 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:           "states.opml",
-			DateCreated:     mustParseTimeGMT("Tue, 15 Mar 2005 16:35:45 GMT"),
-			DateModified:    mustParseTimeGMT("Thu, 14 Jul 2005 23:41:05 GMT"),
+			DateCreated:     mustDecodeRFC1123Time("Tue, 15 Mar 2005 16:35:45 GMT"),
+			DateModified:    mustDecodeRFC1123Time("Thu, 14 Jul 2005 23:41:05 GMT"),
 			OwnerName:       "Dave Winer",
 			OwnerEmail:      "dave@scripting.com",
 			ExpansionState:  []int{1, 6, 13, 16, 18, 20},
@@ -277,19 +276,19 @@ var (
 									Outlines: []Outline{
 										{
 											Text:    "Reno",
-											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:35 GMT"),
+											Created: mustDecodeRFC1123Time("Tue, 12 Jul 2005 23:56:35 GMT"),
 										},
 										{
 											Text:    "Las Vegas",
-											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:37 GMT"),
+											Created: mustDecodeRFC1123Time("Tue, 12 Jul 2005 23:56:37 GMT"),
 										},
 										{
 											Text:    "Ely",
-											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:39 GMT"),
+											Created: mustDecodeRFC1123Time("Tue, 12 Jul 2005 23:56:39 GMT"),
 										},
 										{
 											Text:    "Gerlach",
-											Created: mustParseTimeGMT("Tue, 12 Jul 2005 23:56:47 GMT"),
+											Created: mustDecodeRFC1123Time("Tue, 12 Jul 2005 23:56:47 GMT"),
 										},
 									},
 								},
@@ -389,8 +388,8 @@ var (
 		Version: Version2,
 		Head: Head{
 			Title:           "mySubscriptions.opml",
-			DateCreated:     mustParseTimeGMT("Sat, 18 Jun 2005 12:11:52 GMT"),
-			DateModified:    mustParseTimeGMT("Tue, 02 Aug 2005 21:42:48 GMT"),
+			DateCreated:     mustDecodeRFC1123Time("Sat, 18 Jun 2005 12:11:52 GMT"),
+			DateModified:    mustDecodeRFC1123Time("Tue, 02 Aug 2005 21:42:48 GMT"),
 			OwnerName:       "Dave Winer",
 			OwnerEmail:      "dave@scripting.com",
 			VertScrollState: 1,
@@ -647,124 +646,5 @@ func TestUnmarshalFileSpec(t *testing.T) {
 
 			assertDocumentsEqual(t, *got, tc.want)
 		})
-	}
-}
-
-func mustParseTimeGMT(dateStr string) time.Time {
-	parsed, err := time.ParseInLocation(time.RFC1123, dateStr, locationGMT)
-	if err != nil {
-		panic(err)
-	}
-
-	return parsed
-}
-
-func assertDocumentsEqual(t *testing.T, got, want Document) {
-	t.Helper()
-
-	// OPML metadata
-	if got.XMLName.Local != want.XMLName.Local {
-		t.Errorf("want XMLName.Local %q, got %q", want.XMLName.Local, got.XMLName.Local)
-	}
-	if got.Version != want.Version {
-		t.Errorf("want Version %q, got %q", want.Version, got.Version)
-	}
-
-	// Head
-	if !got.Head.DateCreated.Equal(want.Head.DateCreated) {
-		t.Errorf("want Head > DateCreated %q, got %q", want.Head.DateCreated, got.Head.DateCreated)
-	}
-	if !got.Head.DateModified.Equal(want.Head.DateModified) {
-		t.Errorf("want Head > DateModified %q, got %q", want.Head.DateModified, got.Head.DateModified)
-	}
-	if got.Head.OwnerName != want.Head.OwnerName {
-		t.Errorf("want Head > OwnerName %q, got %q", want.Head.OwnerName, got.Head.OwnerName)
-	}
-	if got.Head.OwnerEmail != want.Head.OwnerEmail {
-		t.Errorf("want Head > OwnerEmail %q, got %q", want.Head.OwnerEmail, got.Head.OwnerEmail)
-	}
-	if got.Head.VertScrollState != want.Head.VertScrollState {
-		t.Errorf("want Head > VertScrollState %d, got %d", want.Head.VertScrollState, got.Head.VertScrollState)
-	}
-	if got.Head.WindowTop != want.Head.WindowTop {
-		t.Errorf("want Head > WindowTop %d, got %d", want.Head.WindowTop, got.Head.WindowTop)
-	}
-	if got.Head.WindowLeft != want.Head.WindowLeft {
-		t.Errorf("want Head > WindowLeft %d, got %d", want.Head.WindowLeft, got.Head.WindowLeft)
-	}
-	if got.Head.WindowBottom != want.Head.WindowBottom {
-		t.Errorf("want Head > WindowBottom %d, got %d", want.Head.WindowBottom, got.Head.WindowBottom)
-	}
-	if got.Head.WindowRight != want.Head.WindowRight {
-		t.Errorf("want Head > WindowRight %d, got %d", want.Head.WindowRight, got.Head.WindowRight)
-	}
-
-	// Body
-	assertOutlinesEqual(t, got.Body.Outlines, want.Body.Outlines)
-}
-
-func assertOutlinesEqual(t *testing.T, gotOutlines, wantOutlines []Outline) {
-	t.Helper()
-
-	if len(gotOutlines) != len(wantOutlines) {
-		t.Fatalf("want %d Outlines, got %d", len(wantOutlines), len(gotOutlines))
-	}
-
-	for index, wantOutline := range wantOutlines {
-		gotOutline := gotOutlines[index]
-
-		if gotOutline.Text != wantOutline.Text {
-			t.Errorf("want Outline %d Text %q, got %q", index, wantOutline.Text, gotOutline.Text)
-		}
-
-		if len(gotOutline.Categories) != len(wantOutline.Categories) {
-			t.Errorf("want Outline %d %d Categories, got %d", index, len(wantOutline.Categories), len(gotOutline.Categories))
-		}
-
-		for cIndex, wantCategory := range wantOutline.Categories {
-			gotCategory := gotOutline.Categories[cIndex]
-
-			if gotCategory != wantCategory {
-				t.Errorf("want Outline %d Category %d %q, got %q", index, cIndex, wantCategory, gotCategory)
-			}
-		}
-
-		if !gotOutline.Created.Equal(wantOutline.Created) {
-			t.Errorf("want Outline %d Created %q, got %q", index, wantOutline.Created, gotOutline.Created)
-		}
-		if gotOutline.Type != wantOutline.Type {
-			t.Errorf("want Outline %d Type %q, got %q", index, wantOutline.Type, gotOutline.Type)
-		}
-		if gotOutline.Url != wantOutline.Url {
-			t.Errorf("want Outline %d URL %q, got %q", index, wantOutline.Url, gotOutline.Url)
-		}
-
-		if gotOutline.Version != wantOutline.Version {
-			t.Errorf("want Outline %d Version %q, got %q", index, wantOutline.Version, gotOutline.Version)
-		}
-		if gotOutline.Title != wantOutline.Title {
-			t.Errorf("want Outline %d Title %q, got %q", index, wantOutline.Title, gotOutline.Title)
-		}
-		if gotOutline.Description != wantOutline.Description {
-			t.Errorf("want Outline %d Description %q, got %q", index, wantOutline.Description, gotOutline.Description)
-		}
-		if gotOutline.Language != wantOutline.Language {
-			t.Errorf("want Outline %d Language %q, got %q", index, wantOutline.Language, gotOutline.Language)
-		}
-		if gotOutline.HtmlUrl != wantOutline.HtmlUrl {
-			t.Errorf("want Outline %d HTMLURL %q, got %q", index, wantOutline.HtmlUrl, gotOutline.HtmlUrl)
-		}
-		if gotOutline.XmlUrl != wantOutline.XmlUrl {
-			t.Errorf("want Outline %d XMLURL %q, got %q", index, wantOutline.XmlUrl, gotOutline.XmlUrl)
-		}
-
-		if gotOutline.IsBreakpoint != wantOutline.IsBreakpoint {
-			t.Errorf("want Outline %d IsBreakpoint %t, got %t", index, wantOutline.IsBreakpoint, gotOutline.IsBreakpoint)
-		}
-		if gotOutline.IsComment != wantOutline.IsComment {
-			t.Errorf("want Outline %d IsComment %t, got %t", index, wantOutline.IsComment, gotOutline.IsComment)
-		}
-
-		assertOutlinesEqual(t, gotOutline.Outlines, wantOutline.Outlines)
 	}
 }
