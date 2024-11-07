@@ -5,6 +5,13 @@
 `opml-go` provides a library to marshal and unmarshal outlines using the
 [Outline Processor Markup Language (OPML)](https://opml.org/spec2.opml) 2.0 format.
 
+## Usage
+
+See examples under:
+
+- `example_marshal_test.go` to create an OPML document and marshal it to XML;
+- `example_unmarshal_test.go` to read a file containing an OPML document.
+
 ## Change Log
 
 See [CHANGELOG](./CHANGELOG.md)
