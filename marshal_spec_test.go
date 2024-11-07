@@ -500,7 +500,7 @@ func TestMarshalFileSpec(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.tname, func(t *testing.T) {
-			referenceFilePath := filepath.Join("testdata", "marshal", tc.referenceFileName)
+			referenceFilePath := filepath.Join("testdata", "spec", "marshal", tc.referenceFileName)
 
 			wantBytes, err := os.ReadFile(referenceFilePath)
 			if err != nil {
@@ -558,7 +558,7 @@ func TestUnmarshalFileSpec(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.tname, func(t *testing.T) {
-			inputFilePath := filepath.Join("testdata", "unmarshal", tc.inputFileName)
+			inputFilePath := filepath.Join("testdata", "spec", "unmarshal", tc.inputFileName)
 
 			got, err := UnmarshalFile(inputFilePath)
 			if err != nil {
