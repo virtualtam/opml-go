@@ -644,7 +644,7 @@ func TestUnmarshalFileSpec(t *testing.T) {
 				t.Fatalf("want no error, got %q", err)
 			}
 
-			assertDocumentsEqual(t, *got, tc.want)
+			AssertDocumentsEqual(t, *got, tc.want)
 		})
 	}
 }
