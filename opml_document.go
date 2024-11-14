@@ -24,6 +24,7 @@ const (
 	OutlineTypeInclusion    OutlineType = "include"
 	OutlineTypeLink         OutlineType = "link"
 	OutlineTypeSubscription OutlineType = "rss"
+	OutlineTypeText         OutlineType = "text"
 
 	RSSVersion1 RSSVersion = "RSS"
 	RSSVersion2 RSSVersion = "RSS2"
@@ -254,6 +255,22 @@ type Outline struct {
 
 	// Directory: Subordinated outlines, arbitrarily structured.
 	Outlines []Outline
+}
+
+// IsDirectory returns whether this Outline is a directory and contains subordinated Outlines.
+func (o *Outline) IsDirectory() bool {
+	return len(o.Outlines) > 0
+}
+
+// OutlineType returns the type of this Outline.
+//
+// If the Type is not set explicitly, it is inferred from the Outline's field values.
+func (o *Outline) OutlineType() OutlineType {
+	if o.Type != "" {
+		return o.Type
+	}
+
+	return OutlineTypeText
 }
 
 func (o *Outline) MarshalJSON() ([]byte, error) {
